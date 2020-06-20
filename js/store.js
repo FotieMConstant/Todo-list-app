@@ -83,10 +83,21 @@
 		// Generate an ID
 	    var newId = ""; 
 	    var charset = "0123456789";
+		// Checking for unique IDs
+		var uniqueId = false;
 
-        for (var i = 0; i < 6; i++) {
-     		newId += charset.charAt(Math.floor(Math.random() * charset.length));
-		}
+		while(!uniqueId){
+			for (var i = 0; i < 6; i++) {
+				newId += charset.charAt(Math.floor(Math.random() * charset.length));
+			}
+			uniqueId = true;
+			//Looping to compare all the todo id's with the newly generated id 
+			for (var i = 0; i < todos.length; i++) {
+			  if (todos[i].id == newId) {
+				uniqueId = false;
+			  }
+			}
+	 	 }
 
 		// If an ID was actually given, find the item and update each property
 		if (id) {
