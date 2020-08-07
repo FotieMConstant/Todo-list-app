@@ -58,8 +58,18 @@ describe('controller', function () {
 		subject = new app.Controller(model, view);
 	});
 
-	it('should show entries on start-up', function () {
+	fit('should show entries on start-up', function () {
 		// TODO: write test
+
+		// arrange
+		setUpModel([]);
+
+		// act
+		subject.setView('') ;
+
+		// assert
+		expect(view.render).toHaveBeenCalledWith('showEntries', [] ) ;
+
 	});
 
 	describe('routing', function () {
