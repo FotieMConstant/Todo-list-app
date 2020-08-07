@@ -58,7 +58,7 @@ describe('controller', function () {
 		subject = new app.Controller(model, view);
 	});
 
-	fit('should show entries on start-up', function () {
+	it('should show entries on start-up', function () {
 		// TODO: write test
 
 		// arrange
