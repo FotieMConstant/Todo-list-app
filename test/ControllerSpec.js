@@ -84,12 +84,16 @@ describe('controller', function () {
 		});
 
 		it('should show all entries without "all" route', function () {
+			// arrange
 			var todo = {title: 'my todo'};
-			setUpModel([todo]);
+			var todoTwo = {title: 'my todoTwo'};
+			setUpModel([todo, todoTwo]);
 
+			// act
 			subject.setView('#/');
 
-			expect(view.render).toHaveBeenCalledWith('showEntries', [todo]);
+			// assert
+			expect(view.render).toHaveBeenCalledWith('showEntries', [todo, todoTwo]);
 		});
 
 		it('should show active entries', function () {
@@ -145,10 +149,26 @@ describe('controller', function () {
 
 	it('should highlight "All" filter by default', function () {
 		// TODO: write test
+		// arrange
+		setUpModel([]);
+
+		// act
+		subject.setView('');
+
+		// assert
+		expect(view.render).toHaveBeenCalledWith('setFilter', '');
 	});
 
 	it('should highlight "Active" filter when switching to active view', function () {
 		// TODO: write test
+		//  arrange
+		setUpModel([]);
+	
+		// act
+		subject.setView('#/active');
+
+		// assert
+		expect(view.render).toHaveBeenCalledWith('setFilter', 'active');
 	});
 
 	describe('toggle all', function () {
@@ -164,6 +184,15 @@ describe('controller', function () {
 	describe('new todo', function () {
 		it('should add a new todo to the model', function () {
 			// TODO: write test
+			// arrange
+			setUpModel([]);
+
+			// act
+			subject.setView('');
+			view.trigger('newTodo', 'a new todo');
+
+			// assert
+			expect(model.create).toHaveBeenCalledWith('a new todo', jasmine.any(Function));
 		});
 
 		it('should add a new todo to the view', function () {
