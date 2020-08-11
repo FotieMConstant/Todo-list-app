@@ -110,7 +110,7 @@ describe('controller', function () {
 			expect(view.render).toHaveBeenCalledWith('showEntries', [todo]);
 		});
 
-		fit('should show completed entries', function () {
+		it('should show completed entries', function () {
 			// TODO: write test
 			// arrange
 			var todo = {title: 'My todo', completed: true};
