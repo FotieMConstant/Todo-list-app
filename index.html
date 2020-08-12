@@ -3,8 +3,11 @@
 	<head>
 		<meta charset="utf-8">
 		<title>To-do list app</title>
-		<link rel="stylesheet" href="node_modules/todomvc-common/base.css">
-		<link rel="stylesheet" href="node_modules/todomvc-app-css/index.css">
+		<!-- <link rel="stylesheet" href="node_modules/todomvc-common/base.css">
+		<link rel="stylesheet" href="node_modules/todomvc-app-css/index.css"> -->
+		<!-- production-->
+		<link rel="stylesheet" href="public/css/all.css">
+		<!-- / production-->
 	</head>
 	<body>
 		<section class="todoapp">
@@ -38,7 +41,10 @@
 			<p>Created by Oscar Godson</p>
 			<p>Refactored by Christoph Burgmer</p>
 		</footer>
-		<script src="node_modules/todomvc-common/base.js"></script>
+		<!-- production-->
+		<script src="public/js/all.js" defer></script>
+				<!-- / production-->
+		<!-- <script src="node_modules/todomvc-common/base.js"></script> -->
 		<script src="js/helpers.js"></script>
 		<script src="js/store.js"></script>
 		<script src="js/model.js"></script>
